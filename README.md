@@ -22,7 +22,7 @@ Details about the project directories :
 
 a) bin/ : contains the executables created after the compilation.
 b) data/ : contains a file that will be used as an example for a test.
-c) doc/ : contains the information file readme.txt as well as the files used for automatic documentation.
+c) doc/ : The files used for automatic documentation.
 d) obj/ : contains all the object files generated during compilation.
 e) src/ : contains the source code of the project divided into modules.
 
@@ -89,12 +89,16 @@ foo@bla:~$ [internet_browser_name] doc/html/index.html then browse the tabs.
 The procedure that has been followed :
 
 - Download and installation of Doxygen. 
+```console
+foo@bla:~$ sudo apt-get install doxygen
+```
+
 - Command line that will generate a configuration file:
 ```console
 foo@bla:~$ doxygen -g
 ```
 - Open the Doxyfile with a text editor and at the line EXTRACT_ALL replace **NO** by **YES**.
-- Final command line : (2 directories will be created)
+- Final command line from main directory : (2 directories will be created)
 ```console
 foo@bla:~$ doxygen Doxyfile
 ```

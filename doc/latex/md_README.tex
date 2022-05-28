@@ -1,0 +1,90 @@
+\hypertarget{md_README_autotoc_md1}{}\doxysubsection{Summary}\label{md_README_autotoc_md1}
+I) Introduction II) Creation of executables III) Use IV) Examples V) Deleting VI) Memory management VII) Automatic documentation VIII) Known weaknesses\hypertarget{md_README_autotoc_md2}{}\doxysection{I) Introduction}\label{md_README_autotoc_md2}
+The Cesar cipher, or shift cipher, is one of the oldest cryptographic methods. The original message undergoes alphabetically a shift chosen by its author, letter by letter. This system is part of the foundations of cryptography and I propose here to test it.
+
+II) Creation of executables Unzip the archive and use the \char`\"{}make\char`\"{} command in the main folder.
+
+Details about the project directories \+:
+
+a) bin/ \+: contains the executables created after the compilation. b) data/ \+: contains a file that will be used as an example for a test. c) doc/ \+: The files used for automatic documentation. d) obj/ \+: contains all the object files generated during compilation. e) src/ \+: contains the source code of the project divided into modules.\hypertarget{md_README_autotoc_md3}{}\doxysection{III) Use}\label{md_README_autotoc_md3}
+In the command line type the following line w\+We suppose that you are in the main folder) \+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{foo@bla:\string~\$ ./bin/[executable\_name] [source\_file] [destination\_file] [encryption\_key]}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item Note 1\+: Pay attention to the order of the arguments.
+\item Note 2\+: Pay attention to the path of the files.
+\item Note 3\+: The destination file may not exist. If a destination file has the same path as the source file, then the source file will be overwritten.
+\item Note 4\+: In the case of decryption, the encryption key used by the sender must of course be revealed to the receiver of the message. It is then enough to change the sign of the encryption key given by the the sender to decrypt the concerned file.
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md4}{}\doxysection{IV) Examples}\label{md_README_autotoc_md4}
+From the main folder\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{foo@bla:\string~\$ ./bin/crypt ./data/test.txt ./data/result.txt 1}
+
+\end{DoxyCode}
+ =$>$ \+\_\+\char`\"{}\+Shift of +1 letter\char`\"{}.\+\_\+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{foo@bla:\string~\$ ./bin/decrypt ./data/test.txt ./data/result.txt -\/1}
+
+\end{DoxyCode}
+ =$>$ \+\_\+\char`\"{}\+Shift of -\/1 letter\char`\"{}.\+\_\+\hypertarget{md_README_autotoc_md5}{}\doxysection{V) Deletion}\label{md_README_autotoc_md5}
+From the main folder, type \char`\"{}make clean\char`\"{}. The object files of obj/ and the executables of bin/ will be deleted.\hypertarget{md_README_autotoc_md6}{}\doxysection{VI) Memory management}\label{md_README_autotoc_md6}
+Use the memory analyzer valgrind to make sure that there are no memory leaks. memory leaks. You must have taken care to have fclose() in the program when you have finished using a using a file after opening it with fopen().
+
+Tests performed with the following commands from the bin/ folder\+: \begin{quote}
+valgrind ./bin/crypt ./data/test.txt ./data/result.txt 1 \end{quote}
+then \begin{quote}
+valgrind ./decrypt ./data/test.txt ./data/result.txt 1 \end{quote}
+Results obtained for each of the previous lines \+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{total heap usage: 2 allocs, 2 frees, 704 bytes allocated}
+\DoxyCodeLine{All heap blocks were freed -\/-\/ no leaks are possible}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md7}{}\doxysection{VII) Automatic documentation}\label{md_README_autotoc_md7}
+I used the Doxygen tool, automatic documentation generator. It is a standard tool to make \char`\"{}clean\char`\"{} projects on the Web.
+
+To view the documentation created from the main folder \+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{foo@bla:\string~\$ [internet\_browser\_name] doc/html/index.html then browse the tabs.}
+
+\end{DoxyCode}
+
+
+The procedure that has been followed \+:
+
+
+\begin{DoxyItemize}
+\item Download and installation of Doxygen. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{foo@bla:\string~\$ sudo apt-\/get install doxygen}
+
+\end{DoxyCode}
+
+\item Command line that will generate a configuration file\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{foo@bla:\string~\$ doxygen -\/g}
+
+\end{DoxyCode}
+
+\item Open the Doxyfile with a text editor and at the line EXTRACT\+\_\+\+ALL replace {\bfseries{NO}} by {\bfseries{YES}}.
+\item Final command line from main directory \+: (2 directories will be created) 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{foo@bla:\string~\$ doxygen Doxyfile}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md8}{}\doxysection{VIII) Known weaknesses}\label{md_README_autotoc_md8}
+See Chapter III, Note 3. 
