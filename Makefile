@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-Wall -ansi
-OBJ=main.o decalage.o
+OBJ=main.o functions_definitions.o
 
 all:
 	make crypt
@@ -8,25 +8,22 @@ all:
 
 crypt:  $(OBJ)
 	$(CC) -o crypt $(OBJ) $(CFLAGS)
-	mv crypt bin/
-	mv *.o obj/
-	@echo "\nGENERATION DE L'EXECUTABLE <CRYPT> OK..."
-	@echo "---> IL SE TROUVE DANS LE REPERTOIRE BIN/\n"
+	mv crypt ./bin/
+	mv *.o ./obj/
+	@echo "[OK] THE EXECUTABLE <CRYPT> HAS BEEN GENERATED IN THE ./BIN/ DIRECTORY"
 
 decrypt:$(OBJ)
 	$(CC) -o decrypt $(OBJ) $(CFLAGS)
-	mv decrypt bin/
-	mv *.o obj/
-	@echo "\nGENERATION DE L'EXECUTABLE <DECRYPT> OK..."
-	@echo "---> IL SE TROUVE DANS LE REPERTOIRE BIN/\n"
+	mv decrypt ./bin/
+	mv *.o ./obj/
+	@echo "[OK] THE EXECUTABLE <DECRYPT> HAS BEEN GENERATED IN THE ./BIN/ DIRECTORY"
 
-main.o: src/main.c src/decalage.h
-	$(CC) -c src/main.c $(CFLAGS)
+main.o: ./src/main.c ./src/defines.h ./src/functions_prototypes.h
+	$(CC) -c ./src/main.c $(CFLAGS)
 
-decalage.o: ./src/decalage.c ./src/decalage.h
-	$(CC) -c src/decalage.c $(CFLAGS)
+functions_definitions.o: ./src/functions_definitions.c ./src/functions_prototypes.h
+	$(CC) -c ./src/functions_definitions.c $(CFLAGS)
 
 clean:
-	rm obj/*.o
-	rm bin/crypt bin/decrypt
-	@echo "\nLES FICHIERS GENERES PRECEDEMMENT ONT BIEN ETE SUPPRIMES...\n"
+	rm -f ./bin/* ./obj/*.o
+	@echo "[OK] THE PROJECT HAS BEEN CLEANED UP !"
