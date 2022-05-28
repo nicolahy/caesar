@@ -1,5 +1,8 @@
 # PROJET CEASAR
 
+## On which operating system can I use it ?
+<img alt="linux" src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black"/>
+
 ### Summary
 I) Introduction
 II) Creation of executables
