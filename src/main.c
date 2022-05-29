@@ -11,17 +11,21 @@ int main(int argc,char *argv[]) {
     displayMessage(ERROR_MESSAGE_NUMBER_ARGUMENTS, TYPE_MESSAGE_ERROR);
   }
 
+  FILE *source = fopen(argv[1],"r"); /* The source file must exist */
+  FILE *destination = fopen(argv[2],"w+");
+
+  if(source == NULL) {
+    displayMessage(ERROR_MESSAGE_FILES, TYPE_MESSAGE_ERROR);
+  }
+
+  if(destination == NULL) {
+    displayMessage(ERROR_MESSAGE_FILES, TYPE_MESSAGE_ERROR);
+  }
+
   int encryptionKey = atoi(argv[3]); /* Conversion of the string which constitutes the 4th argument into a usable integer */;
 
   if(encryptionKey == 0) {
     displayMessage(ERROR_MESSAGE_ENCRYPTION_KEY, TYPE_MESSAGE_ERROR);
-  }
-
-  FILE *source = fopen(argv[1],"r"); /* The source file must exist */
-  FILE *destination = fopen(argv[2],"w+");
-
-  if(source == NULL || destination == NULL) {
-    displayMessage(ERROR_MESSAGE_FILES, TYPE_MESSAGE_ERROR);
   }
 
   int c = 0; /* Character read by fgetc() */
