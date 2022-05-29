@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['type_5fmessage_5ferror_24',['TYPE_MESSAGE_ERROR',['../defines_8h.html#a341919f4bc93ea1caedc5f7f42b9d51e',1,'defines.h']]],
-  ['type_5fmessage_5fnormal_25',['TYPE_MESSAGE_NORMAL',['../defines_8h.html#a48bb21bf4cb36d7d3ec8e6c3ac444566',1,'defines.h']]]
+  ['success_5fmessage_5fdone_25',['SUCCESS_MESSAGE_DONE',['../defines_8h.html#aa35f418c120848edc0b615b9caf8d3be',1,'defines.h']]]
 ];

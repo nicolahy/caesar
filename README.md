@@ -4,46 +4,46 @@
 <img alt="linux" src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black"/>
 
 ### Summary
-I) Introduction
-II) Creation of executables
-III) Use
-IV) Examples
-V) Deleting
-VI) Memory management
-VII) Automatic documentation
-VIII) Known weaknesses
+1. Introduction
+2. Creation of executables
+3. Use
+4. Examples
+5. Deleting
+6. Memory management
+7. Automatic documentation
+8. Known weaknesses
 
-## I) Introduction
+## 1. Introduction
 The Caesar cipher, or shift cipher, is one of the oldest cryptographic methods.
 The original message undergoes alphabetically a shift chosen by its author, letter by letter.
 This system is part of the foundations of cryptography and I propose here to test it.
 
-II) Creation of executables
-Unzip the archive and use the "make" command in the main folder.
+## 2. Creation of executables
+Unzip the archive and use the "make" command in the main directory.
 
 Details about the project directories :
 
-a) bin/ : contains the executables created after the compilation.
-b) data/ : contains a file that will be used as an example for a test.
-c) doc/ : The files used for automatic documentation.
-d) obj/ : contains all the object files generated during compilation.
-e) src/ : contains the source code of the project divided into modules.
+* bin/ : contains the executables created after the compilation.
+* data/ : contains a file that will be used as an example for a test.
+* doc/ : The files used for automatic documentation.
+* obj/ : contains all the object files generated during compilation.
+* src/ : contains the source code of the project divided into modules.
 
-## III) Use
-In the command line type the following line wWe suppose that you are in the main folder) :
+## 3. Use
+In the command line type the following line. We suppose that you are in the main directory) :
 
 ```console
 foo@bla:~$ ./bin/[executable_name] [source_file] [destination_file] [encryption_key]
 ```
 
-- Note 1: Pay attention to the order of the arguments.
-- Note 2: Pay attention to the path of the files.
-- Note 3: The destination file may not exist. If a destination file has the same path as the source file, then the source file will be overwritten.
-- Note 4: In the case of decryption, the encryption key used by the sender must of course be revealed to the receiver of the message.
-          It is then enough to change the sign of the encryption key given by the the sender to decrypt the concerned file.
+- Note #1: Pay attention to the order of the arguments.
+- Note #2: Pay attention to the path of the files.
+- Note #3: The destination file may not exist. If a destination file has the same path as the source file, then the source file will be overwritten.
+- Note #4: In the case of decryption, the encryption key used by the sender must of course be revealed to the receiver of the message.
+  It is then enough to change the sign of the encryption key given by the the sender to decrypt the concerned file.
 
-## IV) Examples
-From the main folder:
+## 4. Examples
+From the main directory :
 
 ```console
 foo@bla:~$ ./bin/crypt ./data/test.txt ./data/result.txt 1
@@ -55,22 +55,31 @@ foo@bla:~$ ./bin/decrypt ./data/test.txt ./data/result.txt -1
 ```
 => _"Shift of -1 letter"._
 
-## V) Deletion
+## 5. Deletion
 
-From the main folder, type "make clean".
+From the main directory, type :
+
+```console
+foo@bla:~$ make clean
+```
+
 The object files of obj/ and the executables of bin/ will be deleted.
 
-## VI) Memory management
+## 6. Memory management
 
 Use the memory analyzer valgrind to make sure that there are no memory leaks.
 memory leaks.
 You must have taken care to have fclose() in the program when you have finished using a
 using a file after opening it with fopen().
 
-Tests performed with the following commands from the bin/ folder:
-> valgrind --leak-check=full --show-leak-kinds=all ./bin/crypt ./data/test.txt ./data/result.txt 1
+Tests performed with the following commands from the main directory:
+```console
+foo@bla:~$ valgrind --leak-check=full --show-leak-kinds=all ./bin/crypt ./data/test.txt ./data/result.txt 1
+```
 then
-> valgrind --leak-check=full --show-leak-kinds=all ./decrypt ./data/test.txt ./data/result.txt 1
+```console
+foo@bla:~$ valgrind --leak-check=full --show-leak-kinds=all ./bin/decrypt ./data/test.txt ./data/result.txt 1
+```
 
 Results obtained for each of the previous lines :
 ```console
@@ -81,32 +90,32 @@ Results obtained for each of the previous lines :
 ==6609== All heap blocks were freed -- no leaks are possible
 ```
 
-## VII) Automatic documentation
+## 7. Automatic documentation
 
 I used the Doxygen tool, automatic documentation generator.
 It is a standard tool to make "clean" projects on the Web.
 
 The procedure that has been followed :
 
-- Download and installation of Doxygen. 
+- Download and installation of Doxygen.
 ```console
 foo@bla:~$ sudo apt-get install doxygen
 ```
 
-- Command line that will generate a configuration file:
+- Command line that will generate a configuration file in the doc/ directory :
 ```console
 foo@bla:~$ doxygen -g
 ```
-- Open the Doxyfile with a text editor and at the line EXTRACT_ALL replace **NO** by **YES**.
+- Open the Doxyfile with a text editor and make modifications (directory to browse etc..).
 - Final command line from main directory : (2 directories will be created)
 ```console
 foo@bla:~$ doxygen Doxyfile
 ```
 
-To view the documentation created from the main folder :
+To view the documentation created from the main directory :
 ```console
 foo@bla:~$ [internet_browser_name] doc/html/index.html then browse the tabs.
 ```
 
 ## VIII) Known weaknesses
-See Chapter III, Note 3.
+See Chapter 3, Note #3.
