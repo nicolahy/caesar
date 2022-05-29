@@ -114,8 +114,9 @@ foo@bla:~$ doxygen Doxyfile
 
 To view the documentation created from the main directory :
 ```console
-foo@bla:~$ [internet_browser_name] doc/html/index.html then browse the tabs.
+foo@bla:~$ [internet_browser_name] doc/html/index.html
 ```
+then browse the tabs.
 
 ## VIII) Known weaknesses
 See Chapter 3, Note #3.
