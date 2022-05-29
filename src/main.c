@@ -12,11 +12,12 @@ int main(int argc,char *argv[]) {
   }
 
   FILE *source = fopen(argv[1],"r"); /* The source file must exist */
-  FILE *destination = fopen(argv[2],"w+");
 
   if(source == NULL) {
     displayMessage(ERROR_MESSAGE_FILES, TYPE_MESSAGE_ERROR);
   }
+
+  FILE *destination = fopen(argv[2],"w+");
 
   if(destination == NULL) {
     displayMessage(ERROR_MESSAGE_FILES, TYPE_MESSAGE_ERROR);
