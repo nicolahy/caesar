@@ -1,4 +1,4 @@
-# PROJET CEASAR
+# PROJET CAESAR
 
 ## On which operating system can I use it ?
 <img alt="linux" src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black"/>
@@ -14,7 +14,7 @@ VII) Automatic documentation
 VIII) Known weaknesses
 
 ## I) Introduction
-The Cesar cipher, or shift cipher, is one of the oldest cryptographic methods.
+The Caesar cipher, or shift cipher, is one of the oldest cryptographic methods.
 The original message undergoes alphabetically a shift chosen by its author, letter by letter.
 This system is part of the foundations of cryptography and I propose here to test it.
 
@@ -86,12 +86,6 @@ Results obtained for each of the previous lines :
 I used the Doxygen tool, automatic documentation generator.
 It is a standard tool to make "clean" projects on the Web.
 
-To view the documentation created from the main folder :
-
-```console
-foo@bla:~$ [internet_browser_name] doc/html/index.html then browse the tabs.
-```
-
 The procedure that has been followed :
 
 - Download and installation of Doxygen. 
@@ -107,6 +101,11 @@ foo@bla:~$ doxygen -g
 - Final command line from main directory : (2 directories will be created)
 ```console
 foo@bla:~$ doxygen Doxyfile
+```
+
+To view the documentation created from the main folder :
+```console
+foo@bla:~$ [internet_browser_name] doc/html/index.html then browse the tabs.
 ```
 
 ## VIII) Known weaknesses
