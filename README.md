@@ -68,14 +68,17 @@ You must have taken care to have fclose() in the program when you have finished 
 using a file after opening it with fopen().
 
 Tests performed with the following commands from the bin/ folder:
-> valgrind ./bin/crypt ./data/test.txt ./data/result.txt 1
+> valgrind --leak-check=full --show-leak-kinds=all ./bin/crypt ./data/test.txt ./data/result.txt 1
 then
-> valgrind ./decrypt ./data/test.txt ./data/result.txt 1
+> valgrind --leak-check=full --show-leak-kinds=all ./decrypt ./data/test.txt ./data/result.txt 1
 
 Results obtained for each of the previous lines :
 ```console
-total heap usage: 2 allocs, 2 frees, 704 bytes allocated
-All heap blocks were freed -- no leaks are possible
+==6609== HEAP SUMMARY:
+==6609==   in use at exit: 0 bytes in 0 blocks
+==6609==   total heap usage: 5 allocs, 5 frees, 10,160 bytes allocated
+==6609== 
+==6609== All heap blocks were freed -- no leaks are possible
 ```
 
 ## VII) Automatic documentation

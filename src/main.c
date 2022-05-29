@@ -30,10 +30,10 @@ int main(int argc,char *argv[]) {
     fprintf(destination,"%c", shiftLetter(c, encryptionKey));
   }
 
-  displayMessage(SUCCESS_MESSAGE_DONE, TYPE_MESSAGE_NORMAL);
-
   fclose(source);
   fclose(destination);
+
+  displayMessage(SUCCESS_MESSAGE_DONE, TYPE_MESSAGE_NORMAL);
 
   return 0;
 }

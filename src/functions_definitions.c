@@ -30,9 +30,8 @@ char shiftLetter(char letter, int encryptionKey) {
 
 void displayMessage(char *message, int typeMessage) {
   switch(typeMessage) {
-    case TYPE_MESSAGE_ERROR : fprintf(stderr,"%s\n", message); break;
-    case TYPE_MESSAGE_NORMAL : fprintf(stdout,"%s\n", message); break;
-    default: fprintf(stdout,"%s\n", message); break;
+    case TYPE_MESSAGE_ERROR: fprintf(stderr,"%s\n", message); exit(EXIT_FAILURE); break;
+    case TYPE_MESSAGE_NORMAL: fprintf(stdout,"%s\n", message); exit(EXIT_SUCCESS); break;
+    default: fprintf(stdout,"%s\n", message); exit(EXIT_SUCCESS); break;
   }
-  exit(EXIT_FAILURE);
 }
