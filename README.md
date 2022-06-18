@@ -1,5 +1,7 @@
 # PROJET CAESAR
 
+[Learn more](https://github.com/niikkos/caesar/blob/main/doc/learn.pdf)
+
 ## On which operating system can I use it ?
 <img alt="linux" src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black"/>
 
